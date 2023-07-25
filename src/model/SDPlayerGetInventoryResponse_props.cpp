@@ -11,7 +11,7 @@
 
 
 
-#include "StardustCoreSDK/model/SDTemplateGetAllResponse_props.h"
+#include "StardustCoreSDK/model/SDPlayerGetInventoryResponse_props.h"
 
 namespace gg {
 namespace stardust {
@@ -20,23 +20,23 @@ namespace model {
 
 
 
-SDTemplateGetAllResponse_props::SDTemplateGetAllResponse_props()
+SDPlayerGetInventoryResponse_props::SDPlayerGetInventoryResponse_props()
 {
     m_ImmutableIsSet = false;
     m_r_mutableIsSet = false;
-    m_mutableIsSet = false;
+    m_InheritedIsSet = false;
 }
 
-SDTemplateGetAllResponse_props::~SDTemplateGetAllResponse_props()
+SDPlayerGetInventoryResponse_props::~SDPlayerGetInventoryResponse_props()
 {
 }
 
-void SDTemplateGetAllResponse_props::validate()
+void SDPlayerGetInventoryResponse_props::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value SDTemplateGetAllResponse_props::toJson() const
+web::json::value SDPlayerGetInventoryResponse_props::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -49,15 +49,15 @@ web::json::value SDTemplateGetAllResponse_props::toJson() const
     {
         val[utility::conversions::to_string_t(U("mutable"))] = ModelBase::toJson(m_r_mutable);
     }
-    if(m_mutableIsSet)
+    if(m_InheritedIsSet)
     {
-        val[utility::conversions::to_string_t(U("$mutable"))] = ModelBase::toJson(m_mutable);
+        val[utility::conversions::to_string_t(U("inherited"))] = ModelBase::toJson(m_Inherited);
     }
 
     return val;
 }
 
-bool SDTemplateGetAllResponse_props::fromJson(const web::json::value& val)
+bool SDPlayerGetInventoryResponse_props::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -81,20 +81,20 @@ bool SDTemplateGetAllResponse_props::fromJson(const web::json::value& val)
             setRMutable(refVal_setRMutable);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("$mutable"))))
+    if(val.has_field(utility::conversions::to_string_t(U("inherited"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("$mutable")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("inherited")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setMutable;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setMutable);
-            setMutable(refVal_setMutable);
+            std::shared_ptr<Object> refVal_setInherited;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setInherited);
+            setInherited(refVal_setInherited);
         }
     }
     return ok;
 }
 
-void SDTemplateGetAllResponse_props::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void SDPlayerGetInventoryResponse_props::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -109,13 +109,13 @@ void SDTemplateGetAllResponse_props::toMultipart(std::shared_ptr<MultipartFormDa
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("mutable")), m_r_mutable));
     }
-    if(m_mutableIsSet)
+    if(m_InheritedIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("$mutable")), m_mutable));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("inherited")), m_Inherited));
     }
 }
 
-bool SDTemplateGetAllResponse_props::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool SDPlayerGetInventoryResponse_props::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -136,74 +136,74 @@ bool SDTemplateGetAllResponse_props::fromMultiPart(std::shared_ptr<MultipartForm
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("mutable"))), refVal_setRMutable );
         setRMutable(refVal_setRMutable);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("$mutable"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("inherited"))))
     {
-        std::shared_ptr<Object> refVal_setMutable;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("$mutable"))), refVal_setMutable );
-        setMutable(refVal_setMutable);
+        std::shared_ptr<Object> refVal_setInherited;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("inherited"))), refVal_setInherited );
+        setInherited(refVal_setInherited);
     }
     return ok;
 }
 
-std::shared_ptr<Object> SDTemplateGetAllResponse_props::getImmutable() const
+std::shared_ptr<Object> SDPlayerGetInventoryResponse_props::getImmutable() const
 {
     return m_Immutable;
 }
 
-void SDTemplateGetAllResponse_props::setImmutable(const std::shared_ptr<Object>& value)
+void SDPlayerGetInventoryResponse_props::setImmutable(const std::shared_ptr<Object>& value)
 {
     m_Immutable = value;
     m_ImmutableIsSet = true;
 }
 
-bool SDTemplateGetAllResponse_props::immutableIsSet() const
+bool SDPlayerGetInventoryResponse_props::immutableIsSet() const
 {
     return m_ImmutableIsSet;
 }
 
-void SDTemplateGetAllResponse_props::unsetImmutable()
+void SDPlayerGetInventoryResponse_props::unsetImmutable()
 {
     m_ImmutableIsSet = false;
 }
-std::shared_ptr<Object> SDTemplateGetAllResponse_props::getRMutable() const
+std::shared_ptr<Object> SDPlayerGetInventoryResponse_props::getRMutable() const
 {
     return m_r_mutable;
 }
 
-void SDTemplateGetAllResponse_props::setRMutable(const std::shared_ptr<Object>& value)
+void SDPlayerGetInventoryResponse_props::setRMutable(const std::shared_ptr<Object>& value)
 {
     m_r_mutable = value;
     m_r_mutableIsSet = true;
 }
 
-bool SDTemplateGetAllResponse_props::rMutableIsSet() const
+bool SDPlayerGetInventoryResponse_props::rMutableIsSet() const
 {
     return m_r_mutableIsSet;
 }
 
-void SDTemplateGetAllResponse_props::unsetr_mutable()
+void SDPlayerGetInventoryResponse_props::unsetr_mutable()
 {
     m_r_mutableIsSet = false;
 }
-std::shared_ptr<Object> SDTemplateGetAllResponse_props::getMutable() const
+std::shared_ptr<Object> SDPlayerGetInventoryResponse_props::getInherited() const
 {
-    return m_mutable;
+    return m_Inherited;
 }
 
-void SDTemplateGetAllResponse_props::setMutable(const std::shared_ptr<Object>& value)
+void SDPlayerGetInventoryResponse_props::setInherited(const std::shared_ptr<Object>& value)
 {
-    m_mutable = value;
-    m_mutableIsSet = true;
+    m_Inherited = value;
+    m_InheritedIsSet = true;
 }
 
-bool SDTemplateGetAllResponse_props::r_mutableIsSet() const
+bool SDPlayerGetInventoryResponse_props::inheritedIsSet() const
 {
-    return m_mutableIsSet;
+    return m_InheritedIsSet;
 }
 
-void SDTemplateGetAllResponse_props::unsetmutable()
+void SDPlayerGetInventoryResponse_props::unsetInherited()
 {
-    m_mutableIsSet = false;
+    m_InheritedIsSet = false;
 }
 }
 }

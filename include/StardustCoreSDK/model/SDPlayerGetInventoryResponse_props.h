@@ -10,13 +10,13 @@
  */
 
 /*
- * SDTemplateGetAllResponse_props.h
+ * SDPlayerGetInventoryResponse_props.h
  *
  * 
  */
 
-#ifndef GG_STARDUST_CORESDK_MODEL_SDTemplateGetAllResponse_props_H_
-#define GG_STARDUST_CORESDK_MODEL_SDTemplateGetAllResponse_props_H_
+#ifndef GG_STARDUST_CORESDK_MODEL_SDPlayerGetInventoryResponse_props_H_
+#define GG_STARDUST_CORESDK_MODEL_SDPlayerGetInventoryResponse_props_H_
 
 
 #include "StardustCoreSDK/ModelBase.h"
@@ -32,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  SDTemplateGetAllResponse_props
+class  SDPlayerGetInventoryResponse_props
     : public ModelBase
 {
 public:
-    SDTemplateGetAllResponse_props();
-    virtual ~SDTemplateGetAllResponse_props();
+    SDPlayerGetInventoryResponse_props();
+    virtual ~SDPlayerGetInventoryResponse_props();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,7 +51,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// SDTemplateGetAllResponse_props members
+    /// SDPlayerGetInventoryResponse_props members
 
     /// <summary>
     /// 
@@ -74,11 +74,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<Object> getMutable() const;
-    bool r_mutableIsSet() const;
-    void unsetmutable();
+    std::shared_ptr<Object> getInherited() const;
+    bool inheritedIsSet() const;
+    void unsetInherited();
 
-    void setMutable(const std::shared_ptr<Object>& value);
+    void setInherited(const std::shared_ptr<Object>& value);
 
 
 protected:
@@ -86,8 +86,8 @@ protected:
     bool m_ImmutableIsSet;
     std::shared_ptr<Object> m_r_mutable;
     bool m_r_mutableIsSet;
-    std::shared_ptr<Object> m_mutable;
-    bool m_mutableIsSet;
+    std::shared_ptr<Object> m_Inherited;
+    bool m_InheritedIsSet;
 };
 
 
@@ -96,4 +96,4 @@ protected:
 }
 }
 
-#endif /* GG_STARDUST_CORESDK_MODEL_SDTemplateGetAllResponse_props_H_ */
+#endif /* GG_STARDUST_CORESDK_MODEL_SDPlayerGetInventoryResponse_props_H_ */
